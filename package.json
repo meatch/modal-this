@@ -26,6 +26,7 @@
     "peerDependencies": {
         "@emotion/core": "^10.x",
         "@emotion/styled": "^10.x",
+        "styled-components": "^5.x",
         "react": "^16.x",
         "react-dom": "^16.x"
     },
@@ -58,7 +59,7 @@
         "rollup-plugin-peer-deps-external": "^2.2.0",
         "rollup-plugin-terser": "^5.1.2",
         "rollup-plugin-uglify": "^6.0.3",
-        "styled-components": "^5.1.1",
-        "webpack": "^4.41.2"
+        "webpack": "^4.41.2",
+        "styled-components": "^5.1.1"
     }
 }
