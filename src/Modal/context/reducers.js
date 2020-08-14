@@ -34,7 +34,6 @@ const reducer = (state=defaultState, action) => {
                 isSmall: action.isSmall,
                 isMedium: action.isMedium,
                 isLarge: action.isLarge,
-                winWidth: action.winWidth,
             }
         }
         

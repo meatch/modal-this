@@ -2,11 +2,11 @@ import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import uuidv1 from 'uuid/v1';
 
-const DomElement = ({children, id}) => {
+const DomElement = ({children, id, className}) => {
 
     const rootElemRef = useRef(document.createElement('div'));
     rootElemRef.current.id = id ? id : uuidv1();
-    rootElemRef.current.className = 'Modal';
+    rootElemRef.current.className = className;
 
 
     useEffect(() => {

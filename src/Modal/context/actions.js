@@ -48,13 +48,12 @@ export const modalIsOpenUpdate = (isOpen) => {
 | Media Breakpoints
 ---------------------------*/
 /* MEDIA_QUERY_UPDATE ---------------------------*/
-export const mediaQueryUpdate = (isSmall, isMedium, isLarge, winWidth) => {
+export const mediaQueryUpdate = (isSmall, isMedium, isLarge) => {
     return {
         type: actionTypes.MEDIA_QUERY_UPDATE,
         isSmall: isSmall,
         isMedium: isMedium,
         isLarge: isLarge,
-        winWidth: winWidth,
     }
 }
 
