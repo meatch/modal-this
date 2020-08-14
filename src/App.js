@@ -14,6 +14,7 @@ const App = () => {
 
     const modalConfig = {
         showModal: showModal,
+        id: 'MySingularModal',
     }
 
 
