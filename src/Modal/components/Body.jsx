@@ -8,7 +8,7 @@ import Context from '../context/index.js';
 /* Components ---------------------------*/
 import BodyContent from './BodyContent.jsx';
 
-const Body = ({children}) => {
+export const Body = ({children}) => {
 
     const { state } = useContext(Context);
 
@@ -28,8 +28,6 @@ const Body = ({children}) => {
         </BodyStyled>
     );
 }
-
-export default Body
 
 const BodyStyled = styled.div`
     position: relative;

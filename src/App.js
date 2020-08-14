@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 /* Components ---------------------------*/
-import Modal from './Modal/Modal.jsx';
+import Modal, { Header, Body, Footer } from './Modal/Modal.jsx';
 
 const App = () => {
 
@@ -19,8 +19,6 @@ const App = () => {
         isOpen: isOpen,
         id: 'MySingularModal',
         returnFocusId: 'returnToMe',
-        Header: () => { return <header>I am Header</header> },
-        Footer: () => { return <footer>I am Footer</footer> },
         onClose: handleOnClose,
     }
 
@@ -29,7 +27,9 @@ const App = () => {
             <button id='returnToMe' onClick={ handleOnOpen }>Open Modal</button>
             <div>Outside modal</div>
             <Modal config={ modalConfig }>
-                I am in the MODAL
+                <Header>I am the Header</Header>
+                <Body>I am in the MODAL</Body>
+                <Footer>I am the Footer</Footer>
             </Modal>
         </AppStyled>
     );

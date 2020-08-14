@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import Context from '../context/index.js';
 import { heightHeaderUpdate } from '../context/actions.js';
 
-const Header = ({
+export const Header = ({
     children,
     className,
 }) => {
@@ -42,8 +42,6 @@ const Header = ({
         </HeaderStyled>
     );
 }
-
-export default Header;
 
 const HeaderStyled = styled.div`
     background-color: maroon;

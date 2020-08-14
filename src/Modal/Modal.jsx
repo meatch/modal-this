@@ -17,6 +17,11 @@ import {
 import DomElement from './DomElement.jsx';
 import Wrapper from './components/Wrapper.jsx';
 
+/* Component Exports ---------------------------*/
+export { Header } from './components/Header.jsx';
+export { Body } from './components/Body.jsx';
+export { Footer } from './components/Footer.jsx';
+
 /*---------------------------
 | Component
 ---------------------------*/
@@ -26,10 +31,6 @@ const Modal = ({children, config}) => {
     | Initialize Context State
     ---------------------------*/
     const defaultState = {
-        // Components
-        Header: config.Header,
-        Footer: config.Footer,
-
         // Open and Close
         isOpen: config.isOpen,
         hasOpened: false,

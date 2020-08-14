@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import Context from '../context/index.js';
 import { heightFooterUpdate } from '../context/actions.js';
 
-const Footer = ({children}) => {
+export const Footer = ({children}) => {
 
     const { state, dispatch } = useContext(Context);
     const refFooter = createRef();
@@ -33,8 +33,6 @@ const Footer = ({children}) => {
         </FooterStyled>
     );
 }
-
-export default Footer;
 
 const FooterStyled = styled.div`
     padding: ${({state}) => `${state.contentPadding}px`};
