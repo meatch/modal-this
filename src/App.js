@@ -8,8 +8,8 @@ const App = () => {
 
     const [isOpen, isOpenUpdate] = useState(false);
 
-    const handleToggle = () => {
-        isOpenUpdate(!isOpen);
+    const handleOnOpen = () => {
+        isOpenUpdate(true);
     }
     const handleOnClose = () => {
         isOpenUpdate(false);
@@ -18,6 +18,7 @@ const App = () => {
     const modalConfig = {
         isOpen: isOpen,
         id: 'MySingularModal',
+        returnFocusId: 'returnToMe',
         Header: () => { return <header>I am Header</header> },
         Footer: () => { return <footer>I am Footer</footer> },
         onClose: handleOnClose,
@@ -25,8 +26,8 @@ const App = () => {
 
     return (
         <AppStyled className='App'>
-            <button onClick={ handleToggle}>TOGGLE</button>
-            Outside modal
+            <button id='returnToMe' onClick={ handleOnOpen }>Open Modal</button>
+            <div>Outside modal</div>
             <Modal config={ modalConfig }>
                 I am in the MODAL
             </Modal>

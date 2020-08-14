@@ -2,10 +2,6 @@ import React, { useContext, useEffect, createRef } from 'react';
 import styled, { css } from 'styled-components';
 import keycode from 'keycode';
 import classnames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-    faTimes,
-} from '@fortawesome/free-solid-svg-icons';
 
 /* Context ---------------------------*/
 import Context from '../context/index.js';
@@ -14,6 +10,7 @@ import Context from '../context/index.js';
 import Header from './Header.jsx';
 import Body from './Body.jsx';
 import Footer from './Footer.jsx';
+import CloseButton from './CloseButton.jsx';
 
 const Lightbox = ({children}) => {
     /*---------------------------
@@ -98,9 +95,7 @@ const Lightbox = ({children}) => {
                 Close button is positioned upper right, but last to focus
                 helps with trapping focus too. Last goes to first
             */}
-            <button onClick={ state.onClose }>
-                <FontAwesomeIcon icon={ faTimes } />
-            </button>
+            <CloseButton />
         </LightboxStyled>
     );
 }
