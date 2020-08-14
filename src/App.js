@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+/* Components ---------------------------*/
+import Modal from './Modal/Modal.jsx';
+
+const App = () => {
+
+    const [showModal, showModalUpdate] = useState(false);
+
+    const handleToggle = () => {
+        showModalUpdate(!showModal);
+    }
+
+    const modalConfig = {
+        showModal: showModal,
+    }
+
+
+    return (
+        <AppStyled className='Modal'>
+            <button onClick={ handleToggle}>TOGGLE</button>
+            Outside modal
+            <Modal config={ modalConfig }>
+                I am in the MODAL
+            </Modal>
+        </AppStyled>
+    );
 }
 
 export default App;
+
+const AppStyled = styled.div`
+    
+`;
