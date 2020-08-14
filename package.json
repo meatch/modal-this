@@ -1,42 +1,64 @@
 {
-  "name": "modal",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/react-fontawesome": "^0.1.11",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "classnames": "^2.2.6",
-    "keycode": "^2.2.0",
-    "lodash": "^4.17.20",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "styled-components": "^5.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    "name": "modal-this",
+    "version": "0.1.0",
+    "description": "ADA Compliant Modal",
+    "main": "lib/index.js",
+    "browser": "lib/index.umd.js",
+    "module": "lib/index.es.js",
+    "author": "Mitch Gohman",
+    "homepage": "https://github.com/meatch/modal-this",
+    "scripts": {
+        "test": "jest",
+        "start": "styleguidist server",
+        "docs:build": "styleguidist build",
+        "build": "rollup -c",
+        "prepublishOnly": "rm -rf lib && yarn build",
+        "postbuild": "yarn pack && tar -xvzf *.tgz && rm -rf package *.tgz"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/meatch/modal-this.git"
+    },
+    "files": [
+        "/lib"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "peerDependencies": {
+        "@emotion/core": "^10.x",
+        "@emotion/styled": "^10.x",
+        "react": "^16.x",
+        "react-dom": "^16.x"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.6.4",
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
+        "@babel/preset-env": "^7.6.3",
+        "@babel/preset-react": "^7.6.3",
+        "@emotion/core": "^10.0.21",
+        "@emotion/styled": "^10.0.17",
+        "@fortawesome/fontawesome-svg-core": "^1.2.25",
+        "@fortawesome/free-solid-svg-icons": "^5.11.2",
+        "@fortawesome/react-fontawesome": "^0.1.7",
+        "@testing-library/react": "^9.3.0",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-emotion": "^10.0.21",
+        "babel-plugin-module-resolver": "^3.2.0",
+        "classnames": "^2.2.6",
+        "jest": "^24.9.0",
+        "keycode": "^2.2.0",
+        "lodash": "^4.17.15",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-id-generator": "^2.0.0",
+        "react-styleguidist": "^9.2.0",
+        "rollup": "^1.24.0",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-peer-deps-external": "^2.2.0",
+        "rollup-plugin-terser": "^5.1.2",
+        "rollup-plugin-uglify": "^6.0.3",
+        "styled-components": "^5.1.1",
+        "webpack": "^4.41.2"
+    }
 }
