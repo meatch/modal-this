@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 import Context from '../context/index.js';
 import styled from 'styled-components';
 
+/* Components ---------------------------*/
+import Lightbox from './Lightbox.jsx';
+
 const Underlay = ({children}) => {
 
     const { state } = useContext(Context);
@@ -12,7 +15,9 @@ const Underlay = ({children}) => {
             className={ 'Underlay' }
             onClick={ state.onClose }
         >
-            { children } 
+            <Lightbox>
+                { children } 
+            </Lightbox>
         </UnderlayStyled>
     );
 }

@@ -11,15 +11,20 @@ const App = () => {
     const handleToggle = () => {
         isOpenUpdate(!isOpen);
     }
+    const handleOnClose = () => {
+        isOpenUpdate(false);
+    }
 
     const modalConfig = {
         isOpen: isOpen,
         id: 'MySingularModal',
+        Header: () => { return <header>I am Header</header> },
+        Footer: () => { return <footer>I am Footer</footer> },
+        onClose: handleOnClose,
     }
 
-
     return (
-        <AppStyled className='Modal'>
+        <AppStyled className='App'>
             <button onClick={ handleToggle}>TOGGLE</button>
             Outside modal
             <Modal config={ modalConfig }>

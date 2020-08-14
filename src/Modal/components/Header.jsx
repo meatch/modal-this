@@ -13,15 +13,18 @@ const Header = ({
 
     const { state, dispatch } = useContext(Context);
     const refHeader = createRef();
+    const {
+        current: currHeader
+    } = refHeader;
 
     let theFontSize = state.isSmall ? '14px':'18px';
 
     useEffect(()=>{
-        if (state.isOpen) {
-            const heightHeader = refHeader.current.offsetHeight;
+        if (state.isOpen && currHeader) {
+            const heightHeader = currHeader.offsetHeight;
             dispatch(heightHeaderUpdate(heightHeader));
         }
-    },[state.isOpen]);
+    },[state.isOpen, dispatch, currHeader]);
 
     const theClassName = classnames({
         'Header': true,
@@ -45,7 +48,7 @@ export default Header;
 const HeaderStyled = styled.div`
     background-color: maroon;
     color: #fff;
-    padding: 10px;
+    padding: ${({state}) => `${state.contentPadding}px`};
     font-size: ${ props => props.theFontSize};
     line-height: 100%;
 

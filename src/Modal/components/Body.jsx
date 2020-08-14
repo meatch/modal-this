@@ -1,28 +1,16 @@
-import React, { useContext, createRef, useEffect } from 'react';
+import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import classnames from 'classnames';
 
+/* Context ---------------------------*/
 import Context from '../context/index.js';
-import { tabSliderWidthUpdate } from '../context/actions.js';
+
+/* Components ---------------------------*/
+import BodyContent from './BodyContent.jsx';
 
 const Body = ({children}) => {
 
-    const { state, dispatch } = useContext(Context);
-    const BodyRef = createRef();
-
-    useEffect(()=>{
-        if (state.isOpen) {
-            const tabSliderWidth = BodyRef.current;
-            setTimeout(()=> {
-                dispatch(tabSliderWidthUpdate(tabSliderWidth.offsetWidth));
-            }, 100);
-        }
-    }, [state.isOpen]);
-
-    useEffect(()=>{
-        const tabSliderWidth = BodyRef.current.offsetWidth;
-        dispatch(tabSliderWidthUpdate(tabSliderWidth));
-    }, [state.winWidth]);
+    const { state } = useContext(Context);
 
     const theClassName = classnames({
         'Body': true,
@@ -32,10 +20,11 @@ const Body = ({children}) => {
     return (
         <BodyStyled
             state={ state }
-            ref={ BodyRef } 
             className={ theClassName }
         >
-            { state.isOpen && children }
+            <BodyContent>
+                { children }
+            </BodyContent>
         </BodyStyled>
     );
 }
@@ -45,7 +34,7 @@ export default Body
 const BodyStyled = styled.div`
     position: relative;
     overflow: hidden;
-    padding: 10px;
+    padding: ${({state}) => `${state.contentPadding}px`};
 
     ${({state}) => !state.modalTabDrawerIsOpen && css`
         overflow-y: auto;

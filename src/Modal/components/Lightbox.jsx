@@ -1,20 +1,25 @@
 import React, { useContext, useEffect, createRef } from 'react';
 import styled, { css } from 'styled-components';
 import keycode from 'keycode';
-import { ReactSVG } from 'react-svg';
 import classnames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+    faTimes,
+} from '@fortawesome/free-solid-svg-icons';
 
 /* Context ---------------------------*/
 import Context from '../context/index.js';
 
 /* Components ---------------------------*/
-import ButtonIcon from '../../Forms/Controls/Button/ButtonIcon.jsx';
+import Header from './Header.jsx';
+import Body from './Body.jsx';
+import Footer from './Footer.jsx';
 
 const Lightbox = ({children}) => {
     /*---------------------------
     | State, Props and Refs
     ---------------------------*/
-    const { state, dispatch } = useContext(Context);
+    const { state } = useContext(Context);
     const refLightbox = createRef();
     const focusableSelectors = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
 
@@ -27,7 +32,7 @@ const Lightbox = ({children}) => {
             const focusableEls = refLightbox.current.querySelectorAll(focusableSelectors);
             focusableEls[0].focus();
         }
-    }, [state.isOpen]);
+    }, [state.isOpen, refLightbox]);
 
     /*---------------------------
     | Methods
@@ -61,6 +66,8 @@ const Lightbox = ({children}) => {
                 trapFocus(e);
                 break;
             }
+            default:
+                return true;
         }
     }
 
@@ -72,7 +79,6 @@ const Lightbox = ({children}) => {
         'isSmall': state.isSmall,
     });
 
-
     return (
         <LightboxStyled
             state={ state }
@@ -82,13 +88,19 @@ const Lightbox = ({children}) => {
             tabIndex={ 0 }
             ref={ refLightbox }
         >
-            { children }
+            { state.Header && <Header><state.Header /></Header> }
+            <Body>
+                { children }
+            </Body>
+            { state.Footer && <Footer><state.Footer /></Footer> }
 
             {/* 
                 Close button is positioned upper right, but last to focus
                 helps with trapping focus too. Last goes to first
             */}
-            <ButtonIcon onClick={ state.onClose } icon='faTimes' />
+            <button onClick={ state.onClose }>
+                <FontAwesomeIcon icon={ faTimes } />
+            </button>
         </LightboxStyled>
     );
 }

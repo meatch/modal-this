@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
+/* Components ---------------------------*/
+import Underlay from './Underlay.jsx';
+
 const Wrapper = ({children}) => {
 
     return (
         <WrapperStyled className='Wrapper'>
-            { children } 
+            <Underlay>
+                { children }
+            </Underlay>
         </WrapperStyled>
     );
 }

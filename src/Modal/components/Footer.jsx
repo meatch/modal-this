@@ -10,12 +10,18 @@ const Footer = ({children}) => {
     const { state, dispatch } = useContext(Context);
     const refFooter = createRef();
 
+    const {
+        current: currFooter
+    } = refFooter;
+
     useEffect(()=>{
-        if (state.isOpen) {
-            const heightFooter = refFooter.current.offsetHeight;
+
+        if (state.isOpen && currFooter) {
+            console.log('too much');
+            const heightFooter = currFooter.offsetHeight;
             dispatch(heightFooterUpdate(heightFooter));
         }
-    },[state.isOpen]);
+    },[state.isOpen, dispatch, currFooter]);
 
     return (
         <FooterStyled
@@ -31,7 +37,7 @@ const Footer = ({children}) => {
 export default Footer;
 
 const FooterStyled = styled.div`
-    padding: 20px 10px; 
+    padding: ${({state}) => `${state.contentPadding}px`};
 
     /*---------------------------
     | FULL and isSmall
