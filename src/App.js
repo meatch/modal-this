@@ -6,14 +6,14 @@ import Modal from './Modal/Modal.jsx';
 
 const App = () => {
 
-    const [showModal, showModalUpdate] = useState(false);
+    const [isOpen, isOpenUpdate] = useState(false);
 
     const handleToggle = () => {
-        showModalUpdate(!showModal);
+        isOpenUpdate(!isOpen);
     }
 
     const modalConfig = {
-        showModal: showModal,
+        isOpen: isOpen,
         id: 'MySingularModal',
     }
 
